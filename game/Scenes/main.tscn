@@ -1,23 +1,24 @@
 [gd_scene load_steps=11 format=3 uid="uid://bowl3q8v0laye"]
 
-[ext_resource type="Texture2D" uid="uid://kfyupsphltgw" path="res://Art/textures/gray_rocks_diff_4k.png" id="1_ad6bj"]
+[ext_resource type="Texture2D" uid="uid://d3vr4uipyam8d" path="res://Art/textures/coast_sand_rocks_02_diff_4k.png" id="1_fn7t3"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_sbqa5"]
-[ext_resource type="Texture2D" uid="uid://dxpwere6ov6v0" path="res://Art/textures/gray_rocks_nor_gl_4k.png" id="2_12xjb"]
-[ext_resource type="Texture2D" uid="uid://cq0skf1qm5xld" path="res://Art/textures/gray_rocks_rough_4k.png" id="3_63yrd"]
+[ext_resource type="Texture2D" uid="uid://cehlv5bta1rg4" path="res://Art/textures/coast_sand_rocks_02_nor_gl_4k.png" id="2_gqogi"]
+[ext_resource type="Texture2D" uid="uid://mdgcgdk4ydax" path="res://Art/textures/coast_sand_rocks_02_rough_4k.png" id="3_qkrim"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xp4hf"]
-albedo_texture = ExtResource("1_ad6bj")
-roughness_texture = ExtResource("3_63yrd")
+albedo_texture = ExtResource("1_fn7t3")
+roughness_texture = ExtResource("3_qkrim")
 normal_enabled = true
-normal_texture = ExtResource("2_12xjb")
-uv1_scale = Vector3(20, 20, 20)
+normal_texture = ExtResource("2_gqogi")
+uv1_scale = Vector3(75, 75, 75)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_csplt"]
 material = SubResource("StandardMaterial3D_xp4hf")
-size = Vector2(50, 50)
+size = Vector2(500, 500)
+subdivide_width = 500
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8w45m"]
-data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ibe87"]
+data = PackedVector3Array(250, 0, 250, -250, 0, 250, 250, 0, -250, -250, 0, 250, -250, 0, -250, 250, 0, -250)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k1onh"]
 
@@ -38,7 +39,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 mesh = SubResource("PlaneMesh_csplt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment"]
-shape = SubResource("ConcavePolygonShape3D_8w45m")
+shape = SubResource("ConcavePolygonShape3D_ibe87")
 
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04458, 0)
