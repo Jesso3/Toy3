@@ -1,11 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://bowl3q8v0laye"]
+[gd_scene load_steps=11 format=3 uid="uid://bowl3q8v0laye"]
 
+[ext_resource type="Texture2D" uid="uid://kfyupsphltgw" path="res://Art/textures/gray_rocks_diff_4k.png" id="1_ad6bj"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_sbqa5"]
+[ext_resource type="Texture2D" uid="uid://dxpwere6ov6v0" path="res://Art/textures/gray_rocks_nor_gl_4k.png" id="2_12xjb"]
+[ext_resource type="Texture2D" uid="uid://cq0skf1qm5xld" path="res://Art/textures/gray_rocks_rough_4k.png" id="3_63yrd"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_fadl7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xp4hf"]
+albedo_texture = ExtResource("1_ad6bj")
+roughness_texture = ExtResource("3_63yrd")
+normal_enabled = true
+normal_texture = ExtResource("2_12xjb")
+uv1_scale = Vector3(20, 20, 20)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_seexi"]
-data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_csplt"]
+material = SubResource("StandardMaterial3D_xp4hf")
+size = Vector2(50, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8w45m"]
+data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k1onh"]
 
@@ -17,23 +29,22 @@ background_mode = 1
 background_color = Color(0.411765, 0.780392, 0.945098, 1)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 16.0
 
 [node name="main" type="Node3D"]
 
 [node name="Environment" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-mesh = SubResource("PlaneMesh_fadl7")
+mesh = SubResource("PlaneMesh_csplt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment"]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_seexi")
+shape = SubResource("ConcavePolygonShape3D_8w45m")
 
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04458, 0)
 script = ExtResource("1_sbqa5")
+SPEED = 10.0
+JUMP_VELOCITY = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player"]
 mesh = SubResource("CapsuleMesh_k1onh")
@@ -41,7 +52,14 @@ mesh = SubResource("CapsuleMesh_k1onh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 shape = SubResource("ConvexPolygonShape3D_nnvu0")
 
-[node name="Camera3D" type="Camera3D" parent="player"]
+[node name="Neck" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.730084, -0.152252)
+
+[node name="Camera3D" type="Camera3D" parent="player/Neck"]
+transform = Transform3D(1, 0, 0, 0, 0.989779, 0.142612, 0, -0.142612, 0.989779, 0, 0.0810876, -0.0647721)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kw3ht")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999075, 0.0278163, -0.0327801, 0, 0.762476, 0.647016, 0.0429917, -0.646418, 0.761772, 0, 2.9928, 0)
