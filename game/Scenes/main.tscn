@@ -53,11 +53,8 @@ mesh = SubResource("CapsuleMesh_k1onh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 shape = SubResource("ConvexPolygonShape3D_nnvu0")
 
-[node name="Neck" type="Node3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.730084, -0.152252)
-
-[node name="Camera3D" type="Camera3D" parent="player/Neck"]
-transform = Transform3D(1, 0, 0, 0, 0.989779, 0.142612, 0, -0.142612, 0.989779, 0, 0.0810876, -0.0647721)
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(0.888609, 0.119948, -0.442703, 0, 0.965199, 0.261515, 0.458665, -0.232385, 0.857685, -5.43677, 5.42416, 9.77242)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kw3ht")
