@@ -1,5 +1,5 @@
 extends Node3D
-
+#
 @onready var enemy = preload("res://Scenes/enemy.tscn")
 @onready var enemy_script = preload("res://Scripts/Enemy.gd")
 var enemies = 10
@@ -10,6 +10,7 @@ func _ready():
 	randomize()
 	for i in range(10):
 		spawn_enemy()
+		#yyy
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
