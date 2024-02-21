@@ -2,8 +2,11 @@ extends CharacterBody3D
 
 @onready var nav_agent = $NavigationAgent3D
 @onready var player = $"../player"
+@onready var main_script = preload("res://Scripts/main.gd")
 
 @export var speed = 3
+
+
 
 func _physics_process(delta):
 	var curren_location = global_transform.origin
@@ -11,8 +14,15 @@ func _physics_process(delta):
 	var new_velocity = (next_location - curren_location).normalized() * speed
 	
 	if position.distance_to(player.position) < 25:
-		velocity = new_velocity
+		velocity = velocity.move_toward(new_velocity,.25)
 		move_and_slide()
+	
+	if position.distance_to(player.position) > 75:
+		$"..".enemies-=1;
+		print($"..".enemies);
+		queue_free()
+		
+		
 	
 func update_target_location(target_location):
 	nav_agent.set_target_position(target_location)
