@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bowl3q8v0laye"]
+[gd_scene load_steps=15 format=3 uid="uid://bowl3q8v0laye"]
 
 [ext_resource type="Texture2D" uid="uid://d3vr4uipyam8d" path="res://Art/textures/coast_sand_rocks_02_diff_4k.png" id="1_fn7t3"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_o7d8e"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mdgcgdk4ydax" path="res://Art/textures/coast_sand_rocks_02_rough_4k.png" id="3_qkrim"]
 [ext_resource type="PackedScene" uid="uid://bj87kgsu03tef" path="res://Scenes/player.tscn" id="5_f651l"]
 [ext_resource type="PackedScene" uid="uid://b16qb8fki4fqj" path="res://Scenes/enemy.tscn" id="6_ime5u"]
+[ext_resource type="PackedScene" uid="uid://do6dbakp67ln4" path="res://Scenes/bullet.tscn" id="7_ehwvq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_i5ymh"]
 vertices = PackedVector3Array(9.75099, 0.5, -10.25, 10.751, 0.5, -10.5, 10.751, 0.5, -249.5, -249.499, 0.5, -249.5, -249.499, 0.5, -9, -249.499, 0.5, -9, 9.75099, 0.5, -8.75, 9.75099, 0.5, -10.25, 12.001, 0.5, -10.25, 12.001, 0.5, -8.25, 249.501, 0.5, -8.25, 10.751, 0.5, -10.5, 12.001, 0.5, -10.25, 249.501, 0.5, -8.25, 249.501, 0.5, -249.5, 10.751, 0.5, -249.5, -249.499, 0.5, 9.25, 9.75099, 0.5, 9, 9.75099, 0.5, -8.75, -249.499, 0.5, -9, 12.001, 0.5, 8.5, 249.501, 0.5, 8.5, 249.501, 0.5, -8.25, 12.001, 0.5, -8.25, 249.501, 0.5, 8.5, 12.001, 0.5, 8.5, 12.001, 0.5, 10.5, 249.501, 0.5, 8.5, 12.001, 0.5, 10.5, 10.751, 0.5, 10.75, 10.751, 0.5, 249.5, 249.501, 0.5, 249.5, 10.751, 0.5, 249.5, 10.751, 0.5, 10.75, 9.75099, 0.5, 10.5, -249.499, 0.5, 9.25, -249.499, 0.5, 249.5, 9.75099, 0.5, 10.5, 9.75099, 0.5, 9, -249.499, 0.5, 9.25)
@@ -21,7 +22,6 @@ uv1_scale = Vector3(75, 75, 75)
 [sub_resource type="PlaneMesh" id="PlaneMesh_csplt"]
 material = SubResource("StandardMaterial3D_xp4hf")
 size = Vector2(500, 500)
-subdivide_width = 500
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ibe87"]
 data = PackedVector3Array(250, 0, 250, -250, 0, 250, 250, 0, -250, -250, 0, 250, -250, 0, -250, 250, 0, -250)
@@ -65,8 +65,11 @@ shape = SubResource("ConcavePolygonShape3D_rg6tp")
 
 [node name="player" parent="." instance=ExtResource("5_f651l")]
 
-[node name="Enemy" parent="." instance=ExtResource("6_ime5u")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("emitter") groups=["bullets_enemies"] instance=ExtResource("6_ime5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.979, 1, 0)
+emitter = NodePath("../Bullet")
+
+[node name="Bullet" parent="." groups=["bullets_enemies"] instance=ExtResource("7_ehwvq")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kw3ht")

@@ -9,13 +9,14 @@ points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146
 
 [node name="Bullet" type="RigidBody3D"]
 transform = Transform3D(0.888609, 0.119948, -0.442703, 0.44301, 0.0255704, 0.896152, 0.118812, -0.992451, -0.0304161, -5.43677, -0.0429816, 0.301564)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_p0kq3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.15, 0, -2.00234e-08, 0, 0.15, -4.19095e-09, 2.44472e-09, 4.19095e-09, 0.15, 4.97963, 0.818726, -2.28691)
+transform = Transform3D(0.15, 0, -1.98488e-08, 1.67638e-08, 0.15, -4.19095e-09, -7.98027e-08, 4.19095e-09, 0.15, 0.0777893, 0.304588, 0.232943)
 mesh = SubResource("CylinderMesh_ll5dy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.15, 0, -2.00234e-08, 0, 0.15, -4.19095e-09, 2.44472e-09, 4.19095e-09, 0.15, 4.97963, 0.818726, -2.28691)
+transform = Transform3D(0.15, 0, -1.98488e-08, 1.67638e-08, 0.15, -4.19095e-09, -7.98027e-08, 4.19095e-09, 0.15, 0.0777893, 0.304588, 0.232943)
 shape = SubResource("ConvexPolygonShape3D_5me7y")
-disabled = true

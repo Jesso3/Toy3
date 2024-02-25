@@ -34,6 +34,6 @@ func spawn_enemy():
 	
 func spawn_bullet():
 	var new_bullet = bullet.instantiate()
-	new_bullet.set_position(Vector3(player.position.x-5.5,player.position.y,player.position.z))
+	new_bullet.set_position(Vector3(player.position.x,player.position.y,player.position.z))
 	new_bullet.set_script(bullet_script)
 	add_child(new_bullet)

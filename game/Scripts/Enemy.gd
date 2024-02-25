@@ -6,9 +6,12 @@ extends CharacterBody3D
 
 @export var speed = 3
 
+@export var emitter:Node3D
 
+func _ready() -> void:
+	emitter.bullet_hit.connect(hi)
 
-func _physics_process(delta):
+func _process(delta):
 	var curren_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
 	var new_velocity = (next_location - curren_location).normalized() * speed
@@ -21,13 +24,13 @@ func _physics_process(delta):
 		$"..".enemies-=1;
 		print($"..".enemies);
 		queue_free()
-		
-		
+	
 	
 func update_target_location(target_location):
 	nav_agent.set_target_position(target_location)
 
+func hi():
+	print("hi")
 
-	
-	
-		
+
+
