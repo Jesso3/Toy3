@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deascsnupmj78"
-path="res://.godot/imported/pngegg (1).png-16c22ede7fbd917093d7f240c0a39e3f.ctex"
+path="res://.godot/imported/pngegg (1).png-33ceed20cad7609009ecf30d0cff5a3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pngegg (1).png"
-dest_files=["res://.godot/imported/pngegg (1).png-16c22ede7fbd917093d7f240c0a39e3f.ctex"]
+source_file="res://Art/pngegg (1).png"
+dest_files=["res://.godot/imported/pngegg (1).png-33ceed20cad7609009ecf30d0cff5a3f.ctex"]
 
 [params]
 

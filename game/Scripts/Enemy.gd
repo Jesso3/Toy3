@@ -11,9 +11,9 @@ func _process(delta):
 	var next_location = nav_agent.get_next_path_position()
 	var new_velocity = (next_location - curren_location).normalized() * speed
 	
-	if position.distance_to(player.position) < 250:
-		velocity = velocity.move_toward(new_velocity,.25)
-		move_and_slide()
+	
+	velocity = velocity.move_toward(new_velocity,.25)
+	move_and_slide()
 	
 	if position.distance_to(player.position) > 75:
 		$"..".enemies-=1;
