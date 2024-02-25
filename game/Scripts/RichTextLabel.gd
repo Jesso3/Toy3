@@ -1,13 +1,10 @@
 extends RichTextLabel
 
-
-
-	
 func _ready():
 	$"../Game Over".size = Vector2(0,0)
 
 func _process(delta):
-	var string =  "You need to kill %s more enemies"
+	var string =  "use your sword to kill %s more enemies"
 	$".".set_text(string % $"..".enemies_alive)
 	
 	if $"..".enemies_alive == 0:

@@ -4,7 +4,7 @@ extends Node3D
 @onready var enemy_script = preload("res://Scripts/Enemy.gd")
 
 var enemies = 2
-var enemies_alive = 10
+var enemies_alive = randi_range(10,15)
 
 @onready var player = $player
 
@@ -19,7 +19,7 @@ func _physics_process(delta):
 	
 func spawn_enemy():
 	var new_enemy = enemy.instantiate()
-	new_enemy.set_position(Vector3(randi_range(player.position.x,player.position.x+100),1,randi_range(player.position.z-100,player.position.z)))
+	new_enemy.set_position(Vector3(randi_range(player.position.x,player.position.x+150),1,randi_range(player.position.z-150,player.position.z)))
 	new_enemy.set_script(enemy_script)
 	add_child(new_enemy)
 

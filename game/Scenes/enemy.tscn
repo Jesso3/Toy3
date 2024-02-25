@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b16qb8fki4fqj"]
+[gd_scene load_steps=5 format=3 uid="uid://b16qb8fki4fqj"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_kuefr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjk55"]
+albedo_color = Color(1, 0.498039, 0.313726, 1)
+roughness = 0.78
+
 [sub_resource type="BoxMesh" id="BoxMesh_bebg5"]
+material = SubResource("StandardMaterial3D_kjk55")
 size = Vector3(1, 2, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a2mca"]
