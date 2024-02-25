@@ -8,7 +8,6 @@ extends CharacterBody3D
 
 @export var emitter:Node3D
 
-
 func _process(delta):
 	var curren_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
@@ -27,6 +26,7 @@ func _process(delta):
 func update_target_location(target_location):
 	nav_agent.set_target_position(target_location)
 
+
 func _unhandled_input(event):
 	if (event is InputEventMouseButton && event.is_action_pressed("click")):
 		if position.distance_to(player.position) < 1.5:
@@ -35,3 +35,4 @@ func _unhandled_input(event):
 			print($"..".enemies_alive)
 			$"../sword_sound".play()
 			queue_free()
+
