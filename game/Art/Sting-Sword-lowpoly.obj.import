@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6nkt50q4ll4c"
+path="res://.godot/imported/Sting-Sword-lowpoly.obj-74aaf5491ab5e1c7a2b1afb006eaad82.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Sting-Sword-lowpoly.obj-74aaf5491ab5e1c7a2b1afb006eaad82.mesh"]
+
+source_file="res://Art/Sting-Sword-lowpoly.obj"
+dest_files=["res://.godot/imported/Sting-Sword-lowpoly.obj-74aaf5491ab5e1c7a2b1afb006eaad82.mesh", "res://.godot/imported/Sting-Sword-lowpoly.obj-74aaf5491ab5e1c7a2b1afb006eaad82.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -15,9 +15,5 @@ func _physics_process(delta):
 	if position.y <= 0:
 		queue_free()
 
-	if linear_velocity.z > -30:
-		print("why")
-		bullet_hit.emit()
-		queue_free()
 		
 	
