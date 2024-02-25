@@ -22,3 +22,7 @@ func spawn_enemy():
 	new_enemy.set_position(Vector3(randi_range(player.position.x,player.position.x+100),1,randi_range(player.position.z-100,player.position.z)))
 	new_enemy.set_script(enemy_script)
 	add_child(new_enemy)
+
+
+func _on_button_pressed():
+	get_tree().reload_current_scene()
